@@ -12,35 +12,43 @@ Try out the sample application [on the Play Store](https://play.google.com/store
 *For a working implementation of this project see the `sample/` folder.*
 
   1. Include the library as local library project or add the dependency in your build.gradle.
-        
-        dependencies {
-            compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
-        }
+    
+    ``` groovy
+    dependencies {
+       compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    }
+    ```
 
   2. Include the PagerSlidingTabStrip widget in your layout. This should usually be placed
      above the `ViewPager` it represents.
 
-        <com.astuetz.PagerSlidingTabStrip
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="48dip" />
+    ``` xml
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dip" />
+    ```
 
   3. In your `onCreate` method (or `onCreateView` for a fragment), bind the
      widget to the `ViewPager`.
 
-         // Initialize the ViewPager and set an adapter
-         ViewPager pager = (ViewPager) findViewById(R.id.pager);
-         pager.setAdapter(new TestAdapter(getSupportFragmentManager()));
-         
-         // Bind the tabs to the ViewPager
-         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-         tabs.setViewPager(pager);
+    ``` java
+    // Initialize the ViewPager and set an adapter
+    ViewPager pager = (ViewPager) findViewById(R.id.pager);
+    pager.setAdapter(new TestAdapter(getSupportFragmentManager()));
+   
+    // Bind the tabs to the ViewPager
+    PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+    tabs.setViewPager(pager);
+    ```
 
   4. *(Optional)* If you use an `OnPageChangeListener` with your view pager
      you should set it in the widget rather than on the pager directly.
 
-         // continued from above
-         tabs.setOnPageChangeListener(mPageChangeListener);
+    ``` java
+    // continued from above
+    tabs.setOnPageChangeListener(mPageChangeListener);
+    ```
 
 # Customization
 
